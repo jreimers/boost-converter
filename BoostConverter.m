@@ -105,14 +105,14 @@ simStateCompliance = 'UnknownSimState';
 %=============================================================================
 %
 function sys=mdlDerivatives(t,x,u)
-L = 1;
-R = 1;
-C = 0.5;
+    R = 1;    
+    L = 1;
+    C = 1;
 
-Aon = [ 0, 0; 0, 1/(R*C) ];
-Aoff = [ 0 -1/L; 1/C, -1/(R*C) ];
-B = [ 1/L 0 ];
-sys = (u(2)*Aon + (1-u(2))*Aoff)*x + B*u;
+    Aon = [ 0, 0; 0, 1/(R*C) ];
+    Aoff = [ 0 -1/L; 1/C, -1/(R*C) ];
+    B = [ 1/L 0 ];
+    sys = (u(2)*Aon + (1-u(2))*Aoff)*x + B*u;
 
 
 % end mdlDerivatives
